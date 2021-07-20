@@ -22,20 +22,6 @@ class BinarySearchTree(object):
                 else:
                     self.insert(root.right,node)
         return
-    # def insert(self,node):
-    #     if isinstance(node,Node):
-    #         if node.data < self.root.data:
-    #             if self.root.left is None:
-    #                self.root.left=node
-    #             else:
-    #                 self.root=self.root.left
-    #                 self.insert(node)
-    #         elif node.data > self.root.data:
-    #             if self.root.right is None:
-    #                self.root.right=node
-    #             else:
-    #                 self.root=self.root.right
-    #                 self.insert(node)
 
     def inorder(self,root):
         if root:
