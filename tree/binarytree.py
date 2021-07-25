@@ -76,8 +76,8 @@ root =btree.add(root, Node(5))
 
 root =btree.add(root, Node(1))
 root =btree.add(root, Node(3))
-#btree.preorder(root)
+btree.preorder(root)
 #btree.inorder(root)
 #btree.postorder(root)
 
-print(btree.search(root,Node(1)))
+#print(btree.search(root,Node(1)))
