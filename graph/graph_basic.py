@@ -6,8 +6,8 @@ class Graph:
     def __init__(self, nodes):
         self.nodes = nodes
         self.adj_matrix=[]
-        for i in range(nodes):
-            self.adj_matrix.append([0 for i in range(nodes)])
+        for i in range(self.nodes):
+            self.adj_matrix.append([0 for i in range(self.nodes)])
        
     def print_graph(self):
          for arr in range(len(self.adj_matrix)):
