@@ -1,14 +1,9 @@
 """
-graph using the prims algorithm to find minimum spanning tree
-this is more like a dfs
-pre-requisites:
-vertex has to be known in advance
-no parallel edges
-no self loops
-all vertex has to be connected and weighted
+graph using the adjacency matrix
 """
 from collections import defaultdict
 import sys
+
 class Vertex:
     def __init__(self, vertex):
         self.vertex=vertex
@@ -19,7 +14,6 @@ class Vertex:
 class Graph:
     def __init__(self):
         self.vertices={}
-        self.visited = defaultdict(lambda : False)
 
     def __call__(self):
         for key, val in self.vertices.items():
@@ -140,45 +134,33 @@ class Graph:
             if ele[1]<least_weight and ele[0] not in visited:
                 nbr_vertex, least_weight = ele
         return nbr_vertex, least_weight
+    
+    def find_parent(self, parent, node):
+        if parent[node]==-1:
+            return node
+        else:
+            self.find_parent(parent,parent[node])
 
-    def prims(self, source_node):
-        """
-        1. just get one vertex, 
-        2. find all the connected ones
-        3. find the least weight in the connected ones
-        4. take that veretx
-        5. and go through 2 and 3 step 
-        """
-        visited = defaultdict(lambda : False)
-        while self.vertices.get(source_node,None) and source_node not in visited:
-            visited[source_node]=True
-            nbr_vertex, least_weight = self.get_least_weight_nbr(source_node, visited)
-            print("Source node:{} Nbrvertex:{} Leastweight: {}".format(source_node,nbr_vertex, least_weight))
-            source_node = nbr_vertex
+    def union(self,parent,node_x, node_y):
+        parent[node_x]=node_y
+        return parent
 
-    def prims_recursive(self, source_node, visited=None):
-        if source_node is None:
-            return
-        self.visited[source_node]=True
-        nbr_vertex, least_weight = self.get_least_weight_nbr(source_node, self.visited)
-        return self.prims_recursive(nbr_vertex, self.visited)
+    def kruskal(self, src_node):
+        pass
 
 g=Graph()
-g.add_weight({0,1},2)
-g.add_weight({0,3},1)
-#g.add_weight({0,5},1)
-g.add_weight({1,2},2)
+g.add_weight({0,1},8)
+#g.add_weight({0,1},8)
+g.add_weight({1,2},8)
 #g.add_weight({1,5},8)
-g.add_weight({2,3},3)
-g.add_weight({3,4},4)
-g.add_weight({4,5},5)
-g.add_weight({5,0},8)
+g.add_weight({2,3},8)
+g.add_weight({3,4},8)
+g.add_weight({4,5},8)
+#g.add_weight({5,0})
 #g.add_weight({5,1})
-
 #g()
 #g.get_nbrs(5)
 #g.bfs(0)
 #g.dfs_recursive(0)
 #g.dfs(0)
-#g.prims(0)
-g.prims_recursive(0)
+g.kruskal(0)

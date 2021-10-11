@@ -63,7 +63,7 @@ class MinHeap:
         pass
 
     def heapify(self):
-        
+        pass # todo
 
     def inorder(self, root):
         if not root:

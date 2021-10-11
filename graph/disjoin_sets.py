@@ -1,14 +1,8 @@
 """
-graph using the prims algorithm to find minimum spanning tree
-this is more like a dfs
-pre-requisites:
-vertex has to be known in advance
-no parallel edges
-no self loops
-all vertex has to be connected and weighted
+graph using the adjacency matrix
 """
 from collections import defaultdict
-import sys
+
 class Vertex:
     def __init__(self, vertex):
         self.vertex=vertex
@@ -19,8 +13,7 @@ class Vertex:
 class Graph:
     def __init__(self):
         self.vertices={}
-        self.visited = defaultdict(lambda : False)
-
+        self.parent = defaultdict(lambda : -1)
     def __call__(self):
         for key, val in self.vertices.items():
             print("Vertex {} has neighbours as {}".format(key, val))
@@ -61,6 +54,17 @@ class Graph:
             pass
         else:
             self.vertices[dest_node].extend([(src_node, weight)])
+
+    def get_weight(self, src_node, dest_node):
+        weight=None
+        for node, nbr in self.vertices.items():
+            #print(node, nbr)
+            if node==src_node:
+                for ele in nbr:
+                    if ele[0]==dest_node:
+                        weight=ele[1]
+                        return weight
+
     def get_nbrs(self, src_node):
         nbr = []
         for key, value in self.vertices.items():
@@ -131,48 +135,46 @@ class Graph:
                         print("{} in loop".format(ele))
                         return True
     
-    def get_least_weight_nbr(self, src_node, visited):
-        nbr = self.vertices[src_node]#self.get_nbrs(src_node)
-        least_weight = sys.maxsize
-        print("src_node {} nbr{}".format(src_node,nbr))
-        nbr_vertex = None 
-        for ele in nbr:
-            if ele[1]<least_weight and ele[0] not in visited:
-                nbr_vertex, least_weight = ele
-        return nbr_vertex, least_weight
+    def sort_weight(self):
+        weight_list=[]
+        node_list=list(self.vertices.keys())
+        for node_index in range(0,len(node_list)-1):
+            node=node_list[node_index]
+            nbr=node_list[node_index+1]
+            weight=self.get_weight(node, nbr)
+            if weight:
+                weight_list.append({weight:(node,nbr)})
+        return weight_list
 
-    def prims(self, source_node):
-        """
-        1. just get one vertex, 
-        2. find all the connected ones
-        3. find the least weight in the connected ones
-        4. take that veretx
-        5. and go through 2 and 3 step 
-        """
-        visited = defaultdict(lambda : False)
-        while self.vertices.get(source_node,None) and source_node not in visited:
-            visited[source_node]=True
-            nbr_vertex, least_weight = self.get_least_weight_nbr(source_node, visited)
-            print("Source node:{} Nbrvertex:{} Leastweight: {}".format(source_node,nbr_vertex, least_weight))
-            source_node = nbr_vertex
+    def union(self, parent, x,y):
+        x_set=self.find_parent(parent,x)
+        y_set=self.find_parent(parent,y)
+        parent[y_set]=x_set
 
-    def prims_recursive(self, source_node, visited=None):
-        if source_node is None:
-            return
-        self.visited[source_node]=True
-        nbr_vertex, least_weight = self.get_least_weight_nbr(source_node, self.visited)
-        return self.prims_recursive(nbr_vertex, self.visited)
+    def find_parent(self, parent, node):
+        if parent[node]==-1:
+            return node
+        else:
+            self.find_parent(parent, parent[node])
+
+    def find_cycle(self, source_vertex):
+        nbrs = self.vertices[source_vertex]
+        print(nbrs)
+        
+        #sorted_weight = self.sort_weight()
+        #print(sorted_weight)
+        # for key, value in self.vertices.items():
+        #     print(key, value)
 
 g=Graph()
-g.add_weight({0,1},2)
-g.add_weight({0,3},1)
-#g.add_weight({0,5},1)
-g.add_weight({1,2},2)
+g.add_weight({0,1},10)
+#g.add_weight({0,1},8)
+g.add_weight({1,2},20)
 #g.add_weight({1,5},8)
-g.add_weight({2,3},3)
-g.add_weight({3,4},4)
-g.add_weight({4,5},5)
-g.add_weight({5,0},8)
+g.add_weight({2,3},30)
+g.add_weight({3,4},40)
+g.add_weight({4,5},50)
+#g.add_weight({5,0})
 #g.add_weight({5,1})
 
 #g()
@@ -180,5 +182,4 @@ g.add_weight({5,0},8)
 #g.bfs(0)
 #g.dfs_recursive(0)
 #g.dfs(0)
-#g.prims(0)
-g.prims_recursive(0)
+g.find_cycle(0)
