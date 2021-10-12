@@ -67,7 +67,6 @@ class BinarySearchTree:
                 temp=root.left
                 root = None
                 return temp
-        
 
 A=Node(1)
 B=Node(2)
