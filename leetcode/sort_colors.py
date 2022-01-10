@@ -14,27 +14,40 @@ Output: [0,0,1,1,2,2]
 
 """
 class Solution(object):
-    def _sortColors(self, nums):
-        """
-        :type nums: List[int]
-        :rtype: None Do not return anything, modify nums in-place instead.
-        this is a bubble sort implementation
-        """
-        for i in range(0,len(nums)-1):
-            for j in range(1, len(nums)-i):
-                if nums[j-1]>nums[j]:
-                    nums[j-1], nums[j] = nums[j],nums[j-1]
-        return nums
+    """
+    this is a dutch national flag problem.
+    get the low, mid and high
+    check for mid.(important)
+    if mid is 0, swap with low and increment low
+    if mid is 2, swap with high and decrement high
+    else increment mid
+    """
+
+    def sortColors(self, nums):
+        l,m,h=0,0,len(nums)-1
+        while m<=h:
+            if (nums[m]==0):
+                nums[l],nums[m]=nums[m],nums[l]
+                l+=1
+                m+=1
+            elif (nums[m]==2):
+                nums[h],nums[m]=nums[m],nums[h]
+                h-=1
+            else:
+                m+=1
 
     def sortColors(self, nums):
         red,white,blue=0,0,len(nums)-1
-        l,r=0,len(nums)-1
-        while l<r:
-            if nums[l]==0:
-
-                pass
-            elif nums[l]==2:
-                pass
+        while red<=blue:
+            if nums[white]==0:
+                nums[red],nums[white]=nums[white], nums[red]
+                red+=1
+                white+=1
+            elif nums[white]==2:
+                nums[white],nums[blue]=nums[blue], nums[white]
+                blue-=1
+            else:
+                white+=1
             
 
 
