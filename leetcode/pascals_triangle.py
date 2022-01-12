@@ -42,4 +42,4 @@ class Solution(object):
             #a=[]
         return a# b[-rowIndex]
 
-print(Solution().getRow(3))
+print(Solution()._getRow(3))
