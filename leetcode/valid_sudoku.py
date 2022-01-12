@@ -24,7 +24,6 @@ Input: board =
 ,[".",".",".","4","1","9",".",".","5"]
 ,[".",".",".",".","8",".",".","7","9"]]
 Output: true
-
 """
 
 
@@ -33,69 +32,66 @@ class Solution(object):
         """
         :type board: List[List[str]]
         :rtype: bool
+        i//3 or j//3 signofies which block it belongs
+        basically a limit such 0th block if in 0,1,2
+        since we have row with blocks in 0,3,6,9
         """
-        hash_dict={}
-        delimiter="."
-        for row in range(len(board)):
-            for col in range(len(board[0])):
-                if board[row][col] !=delimiter:
-                    if (row,board[row][col]) not in hash_dict:
-                        hash_dict[(row,board[row][col])]=col
-                    else:
+        row_set=set()
+        col_set=set()
+        block=set()
+        for i in range(len(board)):
+            for j in range(len(board[0])):
+                row_hash_key=(i, board[i][j])
+                col_hash_key=(j, board[i][j])
+                block_hash_key=(i//3,j//3, board[i][j])
+                if board[i][j]!=".":
+                    if (
+                        row_hash_key in row_set
+                        or col_hash_key in col_set
+                        or block in block_hash_key
+                    ):
                         return False
-        hash_dict={}
-        for col in range(len(board[0])):
-            for row in range(len(board)):
-                if board[row][col] !=delimiter:
-                    if (col,board[row][col]) not in hash_dict:
-                        hash_dict[(col,board[row][col])]=row
                     else:
-                        return False
-
-        def validBoard(start_row, end_row, start_col, end_col):
-            hash_dict={}
-            for row in range(start_row,end_row):
-                for col in range(start_col,end_col):
-                    if board[row][col] !=delimiter:
-                        if board[row][col] not in hash_dict:
-                            hash_dict[board[row][col]]=(row,col)
-                        else:
-                            return False
-            return True
-        for row in range(0,len(board),3):
-            for col in range(0,len(board[0]),3):
-                start_row=row
-                end_row=row+3
-                start_col=col
-                end_col=col+3
-                value= validBoard(start_row, end_row, start_col, end_col)          
-                if not value:
-                    return value
+                        row_set.add(row_hash_key)
+                        col_set.add(col_hash_key)
+                        block.add(block_hash_key)
         return True
-board=[ ["5","3",".",".","7",".",".",".","."]
-        ,["6",".",".","1","9","5",".",".","."]
-        ,[".","9","8",".",".",".",".","6","."]
-        ,["8",".",".",".","6",".",".",".","3"]
-        ,["4",".",".","8",".","3",".",".","1"]
-        ,["7",".",".",".","2",".",".",".","6"]
-        ,[".","6",".",".",".",".","2","8","."]
-        ,[".",".",".","4","1","9",".",".","5"]
-        ,[".",".",".",".","8",".",".","7","9"]]
-expected_result=True
 
 
-board=[ [".",".",".",".","5",".",".","1","."],
-        [".","4",".","3",".",".",".",".","."],
-        [".",".",".",".",".","3",".",".","1"],
-        ["8",".",".",".",".",".",".","2","."],
-        [".",".","2",".","7",".",".",".","."],
-        [".","1","5",".",".",".",".",".","."],
-        [".",".",".",".",".","2",".",".","."],
-        [".","2",".","9",".",".",".",".","."],
-        [".",".","4",".",".",".",".",".","."]
-        ]
-expected_result=False
+board = [["5","3",".",
+  ".","7",".",
+  ".",".","."]
+
+,["6",".",".",
+  "1","9","5",
+  ".",".","."]
+
+,[".","9","8",
+  ".",".",".",
+  ".","6","."]
+
+,["8",".",".",
+  ".","6",".",
+  ".",".","3"]
+
+,["4",".",".",
+  "8",".","3",
+  ".",".","1"]
+
+,["7",".",".",
+  ".","2",".",
+  ".",".","6"]
+
+,[".","6",".",
+ ".",".",".",
+ "2","8","."]
+
+,[".",".",".",
+  "4","1","9",
+  ".",".","5"]
+,[".",".",".",".","8",".",".","7","9"]]
+
+
 obj=Solution()
-actual_result = obj.isValidSudoku(board)
-print(actual_result)
-assert actual_result==expected_result
+result = obj.isValidSudoku(board)
+assert result

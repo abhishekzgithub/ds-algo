@@ -4,7 +4,7 @@ class Solution:
     def maxSubArray(self, nums: List[int]) -> int:
         max_so_far=nums[0]
         max_ending_here=nums[0]
-        list_array=nums
+        list_array=nums 
         for i in range(1,len(list_array)):
             max_ending_here = max(list_array[i], list_array[i]+max_ending_here)
             max_so_far=max(max_so_far, max_ending_here)
