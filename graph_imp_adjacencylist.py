@@ -63,6 +63,9 @@ class Graph(object):
         return self._dfs(start,visited)
     
     def topological_sort(self):
+        """
+        this is to kind of make the graph in a directed way by decreasing the inorder to it
+        """
         in_degree = defaultdict(lambda : 0)
         for v in self.vertices:
             vertices=self.get_vertices(v)
