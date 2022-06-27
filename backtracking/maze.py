@@ -1,6 +1,7 @@
 """
+https://www.geeksforgeeks.org/rat-in-a-maze-backtracking-2/
 1.find the stop criteria/condition/result
-2.put the data through the criteria/condition/move along thing
+2.put the data through the criteria/condition/move along thing:dfs will take care of it
 3.if not found a certain criteria to move forward, unset the value
 """
 

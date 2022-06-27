@@ -1,3 +1,6 @@
+"""
+https://leetcode.com/problems/climbing-stairs/
+"""
 def climbing_stairs(l):
     if l<=1:
         return 1
@@ -7,4 +10,4 @@ def climbings_stairs_helpers(n):
     return climbing_stairs(n)
 
 
-print(climbings_stairs_helpers(4))
+print(climbings_stairs_helpers(3))
