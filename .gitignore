@@ -1,1 +1,4 @@
 .vscode
+test copy.py
+pyspark_practice/dump_to_db.py
+*.ipynb

@@ -18,7 +18,7 @@ class Solution(object):
             n=array_left[-ix]*nums[-ix]    
         for ix in range(len(nums)):
             nums[ix]=array_right[ix]*array_left[ix]
-        return nums
+        return nums,array_right,array_left
 
 nums=[1,2,3,4]
 print(Solution().productExceptSelf(nums))
