@@ -45,6 +45,13 @@ class Solution:
         #print(new_nums)
         return self.buildArray(nums,new_nums,index)
 
+    def buildArray(self,nums):
+        new_nums=nums[:]
+        for ix in range(len(nums)):
+            new_nums[ix]=nums[nums[ix]]
+        return new_nums
+
 nums = [0,2,1,5,3,4] #[0,1,2,4,5,3]
-new_nums=nums[:]
-print(Solution().buildArray(nums,new_nums,0))
+#new_nums=nums[:]
+#print(Solution().buildArray(nums,new_nums,0))
+print(Solution().buildArray(nums))
