@@ -44,6 +44,7 @@ class MinHeap(object):
             self.heapify(pos)
 
     def display(self): 
+        print(self.heap)
         for i in range(1, (self.size//2)+1): 
             print(" PARENT : "+ str(self.heap[i])+" LEFT CHILD : "+
                 str(self.heap[self.right_child(i)])+" RIGHT CHILD : "+
