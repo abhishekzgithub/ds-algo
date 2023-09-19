@@ -31,6 +31,10 @@ class Solution(object):
             head = head.next
         print(head.data)
 
+    def reverseList(self, head):
+        curr=head
+        
+
 head = [1,2,3,4,5]
         
 A=Node("A")
@@ -50,3 +54,4 @@ E.next = F
 F.next = G
 
 ll.reverseList(ll.head)
+ll.printf(ll.head)

@@ -46,7 +46,7 @@ class Solution(object):
                 i=0
         return max_length
 
-    def _lengthOfLongestSubstring(self, s):
+    def lengthOfLongestSubstring(self, s):
         """
         insert the element into stack.
         if element is unique to stack, insert.
@@ -68,6 +68,11 @@ class Solution(object):
         return longest_substring
 
     def lengthOfLongestSubstring(self, s):
+        """
+        here its dragging "i"
+        it is being dragged to (last known duplicate index +1)
+        and if the element is not present, the max length is being calculated
+        """
         max_length=0
         i=0
         hash_map=dict()
@@ -83,5 +88,7 @@ class Solution(object):
 
 s="aabcbb" #3
 s="dvdf" #3
+s="pwwkew"
+s="abcadeacbb"
 sol=Solution()
 print(sol.lengthOfLongestSubstring(s))
