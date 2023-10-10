@@ -51,19 +51,26 @@ class BinarySearchTree:
         if root==None:
             return node
         if node.data < root.data:
-            root.left = self.add(root.left,node)
+            if root.left:
+                root.left = self.add(root.left,node)
+            else:
+                root.left=node
         elif node.data > root.data:
-            root.right = self.add(root.right,node)
+            if root.right:
+                root.right = self.add(root.right,node)
+            else:
+                root.right=node
         return root
 
     def search(self, root, node):
-        print(root)
-        if not root or root.data==node.data:
-            return root
-        if node.data < root.data:
-            self.search(root.left, node)
-        elif node.data > root.data:
-            self.search(root.right, node)
+        if root:
+            if root.data==node.data:
+                return (f"Node {node.data} found.")
+            elif node.data < root.data:
+                return self.search(root.left, node) #return is important
+            elif node.data > root.data:
+                return self.search(root.right, node) #return is important
+        return "Not found"
 
 btree = BinarySearchTree()
 root = btree.root
@@ -79,5 +86,5 @@ root =btree.add(root, Node(3))
 btree.preorder(root)
 #btree.inorder(root)
 #btree.postorder(root)
-
-#print(btree.search(root,Node(1)))
+print(btree.search(root,Node(5)))
+print(btree.search(root,Node(50)))

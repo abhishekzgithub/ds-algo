@@ -35,4 +35,23 @@ class Solution(object):
         :type nums: List[int]
         :rtype: int
         """
+        i=0
+        j=len(nums)-1
         
+        while i<j:
+            mid=(i+j)//2 # focus on mid element
+            if nums[mid]>nums[j]:
+                i=mid+1
+            else:
+                j=mid
+        return nums[i] # return the mininum
+
+nums=[1,2,3,4,5]
+print(Solution().findMin(nums))
+nums = [4,5,6,7,0,1,2]
+print(Solution().findMin(nums))
+nums = [3,4,5,1,2]
+print(Solution().findMin(nums))
+
+nums = [4,5,6,7,8,0,1,2]
+print(Solution().findMin(nums))

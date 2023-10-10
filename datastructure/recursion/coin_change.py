@@ -16,3 +16,23 @@ Explanation: There are five solutions:
 {2,2,2,2,2}, {2,2,3,3}, {2,2,6}, {2,3,5} and {5,5}.
 """
 
+def permute(string_val, state, hash,summ=10,index=0):
+    """
+    this solution uses the tabular or bottom-up approach where the solution is presented as the end
+    the stopping condition specifies where to stop at the bottom
+    """
+    if sum(state)==summ:
+        hash.append(state[::])
+        return
+    if sum(state)>summ:
+        return False
+    for idx in range(index,len(string_val)):
+        state.append(string_val[idx])
+        permute(string_val, state, hash,summ,idx)
+        state.pop()
+    return hash
+
+target=10
+print(permute([2,5,3,6],[],[],summ=target))
+
+#unfinished

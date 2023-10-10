@@ -56,8 +56,10 @@ class BinarySearchTree:
             return root
         if node.data < root.data: # left
             root.left = self.delete(root.left, node)
+            return root
         elif root.data < node.data: #right
             root.right = self.delete(root.right, node)
+            return root
         else:
             if root.left is None:
                 temp=root.right
@@ -67,7 +69,19 @@ class BinarySearchTree:
                 temp=root.left
                 root = None
                 return temp
-
+            if root.left !=None and root.right!=None:
+                temp_root=root
+                new_root=root.right
+                while new_root.left:
+                    temp_root=new_root
+                    new_root=new_root.left
+                if temp_root!=root:
+                    temp_root.left=new_root.right
+                else:
+                    temp_root.right=new_root.right
+                root.val=new_root.val
+                new_root=None
+                return root
 A=Node(1)
 B=Node(2)
 C=Node(3)
@@ -78,12 +92,13 @@ F=Node(6)
 # H=Node(8)
 
 bst = BinarySearchTree(A)
-root = bst.insert(A, B)
+#root = bst.insert(A, B)
+root=bst.root
 root = bst.insert(root, C)
 root = bst.insert(root, D)
 root = bst.insert(root, E)
 root = bst.insert(root, F)
 #bst.preorder(A)
 #print(bst.search(A,F))
-#root = bst.delete(A,F)
+root = bst.delete(root,F)
 bst.preorder(A)

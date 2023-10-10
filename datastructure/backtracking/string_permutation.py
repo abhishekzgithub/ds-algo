@@ -35,7 +35,6 @@ class Solution(object):
             state.remove(c)
         return hashlist
 
-val='123'
 
 
 def permute(string_val, state, hash):
@@ -45,7 +44,7 @@ def permute(string_val, state, hash):
     """
     if not string_val:
         #print(state)
-        hash.add("".join(state))
+        hash.append("".join(state))
         return # stopping condition
     for index in range(len(string_val)):
         # setting the 'state' here
@@ -59,8 +58,10 @@ def permute(string_val, state, hash):
         #return ## donot return here
     return hash
 
-hash=set()
+hash=[]#set()
 val='2211' #[[1,1,2,2],[1,2,1,2],[1,2,2,1],[2,1,1,2],[2,1,2,1],[2,2,1,1]]
+val='123'
+
 def permute_helper(val):
     val = list(val)
     #val=[2,2,1,1]
