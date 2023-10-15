@@ -1,55 +1,8 @@
-artist_id	artist_name	label_owner	song_id	artist_id	name	day	song_id	rank
-101	Ed Sheeran	Warner Music Group	45202	101	Shape of You	1	45202	2
-101	Ed Sheeran	Warner Music Group	45202	101	Shape of You	3	45202	2
-101	Ed Sheeran	Warner Music Group	45202	101	Shape of You	15	45202	6
-101	Ed Sheeran	Warner Music Group	55511	101	Perfect	2	55511	2
-120	Drake	Warner Music Group	19960	120	Hotline Bling	1	19960	3
-120	Drake	Warner Music Group	19960	120	Hotline Bling	9	19960	15
-125	Bad Bunny	Rimas Entertainment	12636	125	Mia	23	12636	9
-125	Bad Bunny	Rimas Entertainment	12636	125	Mia	24	12636	7
-125	Bad Bunny	Rimas Entertainment	12636	125	Mia	2	12636	23
-125	Bad Bunny	Rimas Entertainment	12636	125	Mia	29	12636	7
-125	Bad Bunny	Rimas Entertainment	69820	125	Dakiti	1	69820	1
-125	Bad Bunny	Rimas Entertainment	44552	125	Callaita	17	44552	8
-125	Bad Bunny	Rimas Entertainment	44552	125	Callaita	11	44552	16
-145	Lady Gaga	Interscope Records	11254	145	Bad Romance	11	11254	5
-145	Lady Gaga	Interscope Records	11254	145	Bad Romance	12	11254	16
-160	Chris Brown	RCA Records	33101	160	Go Crazy	3	33101	16
-200	Adele	Columbia Records	23299	200	Hello	6	23299	1
-240	Katy Perry	Capitol Records	89633	240	Last Friday Night	14	89633	2
-200	Adele	Columbia Records	28079	200	Someone Like You	9	28079	9
-200	Adele	Columbia Records	28079	200	Someone Like You	7	28079	10
-145	Lady Gaga	Interscope Records	11254	145	Bad Romance	40	11254	1
-200	Adele	Columbia Records	23299	200	Hello	37	23299	5
-145	Lady Gaga	Interscope Records	11254	145	Bad Romance	19	11254	10
-240	Katy Perry	Capitol Records	89633	240	Last Friday Night	23	89633	10
-160	Chris Brown	RCA Records	33101	160	Go Crazy	52	33101	7
-101	Ed Sheeran	Warner Music Group	55511	101	Perfect	20	55511	10
-120	Drake	Warner Music Group	22222	120	One Dance	7	22222	8
-125	Bad Bunny	Rimas Entertainment	44552	125	Callaita	8	44552	1
-260	Taylor Swift	Universal Music Group	54622	260	Wildest Dreams	1	54622	34
-125	Bad Bunny	Rimas Entertainment	44552	125	Callaita	2	44552	1
-120	Drake	Warner Music Group	19960	120	Hotline Bling	2	19960	3
-120	Drake	Warner Music Group	22222	120	One Dance	3	22222	35
-270	Ariana Grande	Universal Music Group	56112	270	7 Rings	3	56112	3
-260	Taylor Swift	Universal Music Group	14525	260	Cruel Summer	4	14525	1
-250	The Weeknd	Universal Music Group	23339	250	Blinding Lights	4	23339	29
-120	Drake	Warner Music Group	13997	120	Rich Flex	4	13997	5
-260	Taylor Swift	Universal Music Group	87752	260	Karma	13	87752	1
-260	Taylor Swift	Universal Music Group	87752	260	Karma	14	87752	1
-145	Lady Gaga	Interscope Records	11254	145	Bad Romance	1	11254	12
-120	Drake	Warner Music Group	13997	120	Rich Flex	51	13997	1
-200	Adele	Columbia Records	28079	200	Someone Like You	52	28079	75
-260	Taylor Swift	Universal Music Group	87752	260	Karma	15	87752	1
-260	Taylor Swift	Universal Music Group	14525	260	Cruel Summer	5	14525	1
-260	Taylor Swift	Universal Music Group	14525	260	Cruel Summer	6	14525	2
-260	Taylor Swift	Universal Music Group	14525	260	Cruel Summer	7	14525	1
-160	Chris Brown	RCA Records	33101	160	Go Crazy	40	33101	13
-260	Taylor Swift	Universal Music Group	54622	260	Wildest Dreams	1	54622	84
-260	Taylor Swift	Universal Music Group	62887	260	Anti-Hero	7	62887	2
-240	Katy Perry	Capitol Records	89633	240	Last Friday Night	50	89633	67
-120	Drake	Warner Music Group	13997	120	Rich Flex	50	13997	1
-120	Drake	Warner Music Group	13997	120	Rich Flex	33	13997	3
-200	Adele	Columbia Records	23299	200	Hello	1	23299	9
-270	Ariana Grande	Universal Music Group	86645	270	Thank U, Next	NULL	NULL	NULL
-260	Taylor Swift	Universal Music Group	23689	260	Blank Space	NULL	NULL	NULL
+searches	num_users
+1	2
+4	1
+2	2
+3	3
+6	1
+5	3
+7	2

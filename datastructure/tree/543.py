@@ -27,6 +27,20 @@ class Solution(BinaryTree):
 		#     return 0
 		self.depth(root)  # root is guaranteed to be a TreeNode object
 		return self.diameter
+	
+	def diameterOfBinaryTree(self, root):
+		"""
+		NOTE: It doesnt involve diameter scenario
+		"""
+		def depth(node):
+			if not node:
+				return 0
+			left=depth(node.left)
+			right=depth(node.right)
+			return 1+max(left,right)
+		if not root:
+			return 0
+		return depth(root.left)+self.depth(root.right)
 
 if __name__=="__main__":
 	root = [1,2,3,4,5] #3
