@@ -35,8 +35,9 @@ class Solution(object):
                 h-=1
             else:
                 m+=1
+        return nums
 
-    def sortColors(self, nums):
+    def _sortColors(self, nums):
         red,white,blue=0,0,len(nums)-1
         while red<=blue:
             if nums[white]==0:
@@ -48,7 +49,7 @@ class Solution(object):
                 blue-=1
             else:
                 white+=1
-            
+        return nums
 
 
 nums=[2,0,2,1,1,0]
