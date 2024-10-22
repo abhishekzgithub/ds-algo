@@ -4,7 +4,7 @@ import findspark
 findspark.init()
 findspark.find()
 
-JAR_LOCATION=r"C:\Users\abhishek\Documents\coding\ds-algo\pyspark_practice\postgresql-42.5.2.jar"
+JAR_LOCATION=r"C:\Users\abhi3\Documents\work\ds-algo\pyspark_practice\postgresql-42.5.2.jar"
 URL = "jdbc:postgresql://localhost:5432/postgres"
 PROPERTIES = {
     "user": "postgres",
@@ -16,8 +16,8 @@ spark = (SparkSession.builder.master("local[*]")
         .config("spark.driver.maxResultSize",  "0")
         .config("spark.executor.memory", "4g")
          #.config("spark.jars", jar_location) # never use this
-        .config("spark.driver.extraClassPath", JAR_LOCATION)
-        .config("spark.driver.maxResultSize",  "0")
+        #.config("spark.driver.extraClassPath", JAR_LOCATION)
+        #.config("spark.driver.maxResultSize",  "0")
         .getOrCreate())
 
 
@@ -35,4 +35,5 @@ def create_rdd(spark):
 def read_postgres_connection(spark,table_name="orders"):
     df = spark.read.jdbc(URL, table_name, properties=PROPERTIES)
     return df.show()
-read_postgres_connection(spark)
+#read_postgres_connection(spark)
+create_rdd(spark)
