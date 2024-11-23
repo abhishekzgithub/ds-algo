@@ -4,3 +4,5 @@ pyspark_practice/dump_to_db.py
 
 *__pycache__/
 .ipynb_checkpoints/
+spark-3.5.3-bin-hadoop3*
+pyspark_practice/pyspark_setup.bat

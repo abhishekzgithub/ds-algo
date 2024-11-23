@@ -12,12 +12,7 @@ Output: [1]
 
 """
 class Solution(object):
-    def topKFrequent(self, nums, k):
-        """
-        :type nums: List[int]
-        :type k: int
-        :rtype: List[int]
-        """
+    def brute_solution(self,nums,k):
         freq={}
         for ele in nums:
             if not freq.get(ele,None):
@@ -29,8 +24,30 @@ class Solution(object):
         for key,val in freq.items():
             if val>=k:
                 keys.append(key)
-
         return (keys)
 
-nums = [1,1,1,2,2,3]; k = 2
+    def topKFrequent(self, nums, k):
+        """
+        :type nums: List[int]
+        :type k: int
+        :rtype: List[int]
+        """
+        freq={}
+        for ele in nums:
+            freq[ele]=freq.get(ele,0)+1
+        bucket=[[] for i in range(len(nums)+1)]
+        print(bucket, freq)
+        for n,c in freq.items():
+            bucket[c].append(n)
+        res=[]
+        print(bucket)
+        for index in range(len(bucket)-1, 0,-1):
+            print(index)
+            if bucket[index]:
+                for ele in bucket[index]:
+                    res.append(ele)
+        return res[:k]
+
+nums = [1,1,1,2,2,3,4]; k = 4
+#nums=[-1,-1];k=1
 print(Solution().topKFrequent(nums,k))

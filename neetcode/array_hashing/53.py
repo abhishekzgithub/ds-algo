@@ -1,4 +1,5 @@
 """
+kadane algorithm
 https://leetcode.com/problems/maximum-subarray/
 Given an integer array nums, find the subarray with the largest sum, and return its sum.
 
@@ -11,17 +12,19 @@ class Solution(object):
         """
         :type nums: List[int]
         :rtype: int
+        step:
+        loop over the elements and keep track of sum in total and max of sum
+        if sum by any chance becomes negative, make it to zero.
         """
-        l,h=0,1
-        maxx=0
-        while h<=len(nums)-1:
-            if nums[l]+nums[h]<0:
-                l+=1
-            else:
-                maxx=max(maxx,nums[l]+nums[h])
-            h+=1
+        maxx=nums[0]
+        summ=0
+        for ele in nums[:]:
+            if summ<0:
+                summ=0
+            summ+=ele
+            maxx=max(summ,maxx)
         return maxx
 
 nums = [-2,1,-3,4,-1,2,1,-5,4]
-nums = [5,4,-1,7,8]
+nums = [5,4,-1,7,8] #23
 print(Solution().maxSubArray(nums))

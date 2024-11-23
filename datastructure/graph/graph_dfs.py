@@ -112,14 +112,14 @@ class Graph:
         #visited[src_node]=True
         while len(stack)>0:
             #print(visited)
-            element = stack.pop(0)
+            element = stack.pop()
             #print("visiting {}".format(element))
             visited[element]=True #visit only when you pop
             nbrs = self.get_nbrs(element)
             for ele in nbrs:
                 if not visited[ele]:
                     if ele not in stack:
-                        stack.insert(0,ele) #adding on top of stack
+                        stack.append(ele)
                     else:
                         print("{} in loop".format(ele))
                         return True
@@ -132,8 +132,8 @@ g.add_weight({1,2},8)
 g.add_weight({2,3},8)
 g.add_weight({3,4},8)
 g.add_weight({4,5},8)
-#g.add_weight({5,0})
-#g.add_weight({5,1})
+g.add_weight({5,0})
+g.add_weight({5,1})
 
 #g()
 #g.get_nbrs(5)

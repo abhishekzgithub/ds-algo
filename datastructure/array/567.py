@@ -34,13 +34,13 @@ class Solution(object):
                 state.pop()
         state=[]
         result=[]
-        self.permute(s1,state,result)
+        permute(s1,state,result)
         for ele in result:
             if ele in s2:
                 return True
         return False
 
-    def checkInclusion(self, s1, s2):
+    def __checkInclusion(self, s1, s2):
         """
         :type s1: str
         :type s2: str
@@ -64,7 +64,7 @@ class Solution(object):
 if __name__=="__main__":
     s1 = "ab"; s2 = "eidboaoo" #false
     s1 = "ab"; s2 = "eidbaooo" #True
-    s1="dinitrophenylhydrazine";s2="acetylphenylhydrazine" #false
-    #s1="adc";s2="dcda" #True
+    #s1="dinitrophenylhydrazine";s2="acetylphenylhydrazine" #false
+    s1="adc";s2="dcda" #True
     obj=Solution()
     print(obj.checkInclusion(s1,s2))
